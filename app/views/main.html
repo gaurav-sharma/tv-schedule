@@ -1,23 +1,29 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div data-ng-init="init()">
+	<ul class="list-group">
+		<li class="list-group-item" data-ng-repeat="tvshow in results">
+			<div class="media">
+				<a class="pull-left" href="#"> <img class="media-object"
+					data-ng-src="{{tvshow.episode.images.screen}}" width="250" height="150" >
+				</a>
+				<div class="media-body">
+					<div class="row">
+						<div class="col-sm-8">
+							<h3 class="media-heading">{{tvshow.show.title}}: {{tvshow.episode.title}}</h3>
+							<span class="label label-primary">{{tvshow.date}}</span>
+						</div>
+						<div class="col-sm-4">
+							<div class="well">
+								<ul class="list-unstyled">
+									<li class=""><strong>On Air:</strong> {{tvshow.show.air_day}} {{tvshow.show.air_time}}</li>
+									<li class=""><strong>Network:</strong> {{tvshow.show.network}}</li>
+									<li class=""><strong>Season #:</strong> {{tvshow.episode.season}}</li>
+									<li class=""><strong>Genres:</strong> <span class="" data-ng-repeat="genre in tvshow.show.genres">{{genre}}<span data-ng-if="!$last">, </span></span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>
